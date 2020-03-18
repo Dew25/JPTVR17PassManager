@@ -80,7 +80,7 @@ public class LoginController extends HttpServlet {
                 User user = new User(login, password, salts, true, person);
                 userFacade.create(user);
                 UserJsonBuilder ujb = new UserJsonBuilder();
-                json = jsonResponse.getJsonResponse(session, ujb.cerateJsonUser(user));
+                json = jsonResponse.getJsonResponse(session, "true");
                 break;
             
         }

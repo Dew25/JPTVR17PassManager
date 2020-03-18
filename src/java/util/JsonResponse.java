@@ -23,7 +23,6 @@ import javax.servlet.http.HttpSession;
 public class JsonResponse {
      public String getJsonResponse(HttpSession session) throws IOException{
     String authStatus = "false";
-    String token = "null";
     String userJson = "null";
     String json = null;
     JsonObjectBuilder job = Json.createObjectBuilder();
@@ -36,21 +35,17 @@ public class JsonResponse {
         user = null;
       }
       if(user != null){
-        token = session.getId();
         authStatus = "true";
         job.add("authStatus", authStatus) // true
-          .add("token", token) // есть
           .add("user", ujb.cerateJsonUser(user)) // есть
           .add("dataJson", "null");// нет даты
       }else{ // user нет
         job.add("authStatus", authStatus) // false
-         .add("token", "null") // "null"
          .add("user", "null")// "null"
          .add("dataJson", "null");
       }
     }else{ // сессии нет (?)
       job.add("authStatus", "false")
-       .add("token", "null")
        .add("user", "null")
        .add("dataJson", "null");
     }
@@ -62,7 +57,6 @@ public class JsonResponse {
   }
   public String getJsonResponse(HttpSession session, String actionStatus) throws IOException{
     String authStatus = "false";
-    String token = "null";
     String userJson = "null";
     String json = null;
     JsonObjectBuilder job = Json.createObjectBuilder();
@@ -75,23 +69,19 @@ public class JsonResponse {
         user = null;
       }
       if(user != null){
-        token = session.getId();
         authStatus = "true";
         job.add("authStatus", authStatus) // true
-          .add("token", token) // есть
           .add("user", ujb.cerateJsonUser(user)) // есть
           .add("dataJson", "null")// нет даты
           .add("actionStatus", actionStatus);
       }else{ // user нет
         job.add("authStatus", authStatus) // false
-         .add("token", "null") // "null"
          .add("user", "null")// "null"
          .add("dataJson", "null")
          .add("actionStatus", actionStatus);
       }
     }else{ // сессии нет (?)
       job.add("authStatus", "false")
-       .add("token", "null")
        .add("user", "null")
        .add("dataJson", "null")
        .add("actionStatus", actionStatus);
@@ -105,7 +95,6 @@ public class JsonResponse {
 
   public String getJsonResponse(HttpSession session, JsonArray dataJson) throws IOException{
     String authStatus = "false";
-    String token = "null";
     String userJson = "null";
     String json = null;
     JsonObjectBuilder job = Json.createObjectBuilder();
@@ -114,18 +103,15 @@ public class JsonResponse {
       User user = (User)session.getAttribute("user");
       if(user != null){// есть 
         job.add("authStatus", "true")
-         .add("token", session.getId())
          .add("user", ujb.cerateJsonUser(user))
          .add("dataJson", dataJson);
       }else{ //user нет
         job.add("authStatus", "false")
-         .add("token", "null")
          .add("user", "null")
          .add("dataJson", "null");
       }  
     }else{
       job.add("authStatus", "false")
-         .add("token", "null")
          .add("user", "null")
          .add("dataJson", "null");
     }
@@ -137,7 +123,6 @@ public class JsonResponse {
   }
   public String getJsonResponse(HttpSession session, JsonObject dataJson) throws IOException{
     String authStatus = "false";
-    String token = "null";
     String userJson = "null";
     String json = null;
     JsonObjectBuilder job = Json.createObjectBuilder();
@@ -146,18 +131,15 @@ public class JsonResponse {
       User user = (User)session.getAttribute("user");
       if(user != null){// есть 
         job.add("authStatus", "true")
-         .add("token", session.getId())
          .add("user", ujb.cerateJsonUser(user))
          .add("dataJson", dataJson);
       }else{ //user нет
         job.add("authStatus", "false")
-         .add("token", "null")
          .add("user", "null")
          .add("dataJson", "null");
       }  
     }else{
       job.add("authStatus", "false")
-         .add("token", "null")
          .add("user", "null")
          .add("dataJson", "null");
     }
@@ -169,7 +151,6 @@ public class JsonResponse {
   }
   public String getJsonResponse(HttpSession session, JsonArray dataJson, boolean isAuth) throws IOException{
     String authStatus = "false";
-    String token = "null";
     String userJson = "null";
     String json = null;
     JsonObjectBuilder job = Json.createObjectBuilder();
@@ -178,25 +159,21 @@ public class JsonResponse {
       User user = (User)session.getAttribute("user");
       if(user != null){// есть 
         job.add("authStatus", "true")
-         .add("token", session.getId())
          .add("user", ujb.cerateJsonUser(user))
          .add("dataJson", dataJson);
       }else{ //user нет
         if(isAuth){
           job.add("authStatus", "false")
-           .add("token", "null")
            .add("user", "null")
            .add("dataJson", "null");
         }else{
           job.add("authStatus", "false")
-           .add("token", "null")
            .add("user", "null")
            .add("dataJson", dataJson);
         }
       }  
     }else{
       job.add("authStatus", "false")
-         .add("token", "null")
          .add("user", "null")
          .add("dataJson", "null");
     }
@@ -208,7 +185,6 @@ public class JsonResponse {
   }
   public String getJsonResponse(HttpSession session, JsonObject dataJson, boolean isAuth) throws IOException{
     String authStatus = "false";
-    String token = "null";
     String userJson = "null";
     String json = null;
     JsonObjectBuilder job = Json.createObjectBuilder();
@@ -217,25 +193,21 @@ public class JsonResponse {
       User user = (User)session.getAttribute("user");
       if(user != null){// есть 
         job.add("authStatus", "true")
-         .add("token", session.getId())
          .add("user", ujb.cerateJsonUser(user))
          .add("dataJson", dataJson);
       }else{ //user нет
         if(isAuth){
           job.add("authStatus", "false")
-           .add("token", "null")
            .add("user", "null")
            .add("dataJson", "null");
         }else{
           job.add("authStatus", "false")
-           .add("token", "null")
            .add("user", "null")
            .add("dataJson", dataJson);
         }
       }  
     }else{
       job.add("authStatus", "false")
-         .add("token", "null")
          .add("user", "null")
          .add("dataJson", "null");
     }

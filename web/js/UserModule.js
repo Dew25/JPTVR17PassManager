@@ -36,11 +36,12 @@ class UserModule{
           }
           httpModule.http({url:'createUser',options:{method:'POST',data:user}})
                   .then(function(response){
-                     if(response.authStatus === 'true'){
-                         localStorage.setItem('user',JSON.stringify(response.user));
-                         appModule.authMenu();
-                         document.getElementById('info').innerHTML='Вы вошли как '+response.user.login
-                     } 
+                     if(response.actionStatus === 'true'){
+                         document.getElementById('info').innerHTML='Пользователь добавлен';
+                         document.getElementById('content').innerHTML='';
+                     }else{
+                         document.getElementById('info').innerHTML='Пользователя добавить не удалось';
+                     }
                   })
       }
 }
