@@ -61,25 +61,44 @@ public class LoginController extends HttpServlet {
         String path = request.getServletPath();
         switch (path) {
             case "/login":
-                
+                JsonObject jsonObject = jsonReader.readObject();
+                String login = jsonObject.getString("login","");
+                String password = jsonObject.getString("password","");
+                User user = userFacade.findByLogin(login);
+                if(user == null){
+                  json = jsonResponse.getJsonResponse(session);
+                  break;
+                }
+                password = ep.setEncriptPass(password,user.getSalts());
+                if(!password.equals(user.getPassword())){
+                  json = jsonResponse.getJsonResponse(session);
+                  break;
+                }
+                session = request.getSession(true);
+                session.setAttribute("user", user);
+                UserJsonBuilder ujb = new UserJsonBuilder();
+                json = jsonResponse.getJsonResponse(session,ujb.cerateJsonUser(user));
                 break;
             case "/logout":
-                
+                if(session != null){
+                    session.invalidate();
+                    json = jsonResponse.getJsonResponse(session, "true");
+                }
                 break;
             case "/createUser":
-                JsonObject jsonObject = jsonReader.readObject();
+                jsonObject = jsonReader.readObject();
                 String firstname = jsonObject.getString("firstname");
                 String lastname = jsonObject.getString("lastname");
                 String email = jsonObject.getString("email");
-                String login = jsonObject.getString("login");
-                String password = jsonObject.getString("password");
+                login = jsonObject.getString("login");
+                password = jsonObject.getString("password");
                 Person person = new Person(firstname, lastname, email);
                 personFacade.create(person);
                 String salts = ep.createSalts();
                 password = ep.setEncriptPass(password, salts);
-                User user = new User(login, password, salts, true, person);
+                user = new User(login, password, salts, true, person);
                 userFacade.create(user);
-                UserJsonBuilder ujb = new UserJsonBuilder();
+                ujb = new UserJsonBuilder();
                 json = jsonResponse.getJsonResponse(session, "true");
                 break;
             

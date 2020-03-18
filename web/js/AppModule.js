@@ -1,6 +1,6 @@
 import {authModule} from './AuthModule.js';
 /* global bookModule, readerModule, authModule */
-export {authMenu};
+
 document.getElementById("userProfile").onclick = function(){
   toogleMenuActive("userProfile"); //находится в текущем скрипте
   bookModule.listBooks(); // импортирована из скрипта (модуля) book.js
@@ -32,22 +32,4 @@ function toogleMenuActive(elementId){
     }
   }
 }
-authMenu();
-
-function authMenu(){
-  let user = null;
-  if(localStorage.getItem('user') !== null){
-    user = JSON.parse(localStorage.getItem('user'));
-  }
-  if(user !== null){
-    document.getElementById("userProfile").style.display = 'block';
-    document.getElementById("userPasswords").style.display = 'block';
-    document.getElementById("sysout").style.display = 'block';
-    document.getElementById("showLogin").style.display = 'none';
-  }else{
-    document.getElementById("userProfile").style.display = 'none';
-    document.getElementById("userPasswords").style.display = 'none';
-    document.getElementById("sysout").style.display = 'none';
-    document.getElementById("showLogin").style.display = 'block';
-  }
-}
+authModule.authMenu();
