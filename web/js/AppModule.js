@@ -1,6 +1,6 @@
-
+import {authModule} from './AuthModule.js';
 /* global bookModule, readerModule, authModule */
-
+export {authMenu};
 document.getElementById("userProfile").onclick = function(){
   toogleMenuActive("userProfile"); //находится в текущем скрипте
   bookModule.listBooks(); // импортирована из скрипта (модуля) book.js
@@ -32,10 +32,10 @@ function toogleMenuActive(elementId){
     }
   }
 }
-//authMenu();
+authMenu();
 
 function authMenu(){
-  let user = {};
+  let user = null;
   if(localStorage.getItem('user') !== null){
     user = JSON.parse(localStorage.getItem('user'));
   }

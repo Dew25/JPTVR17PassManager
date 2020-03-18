@@ -36,7 +36,19 @@
         </nav>
       </div>
       <p id="info" class="w-100 text-center"></p>
-      <div id="content"></div>
+      <div id="content">
+          <div class="w-100 d-flex justify-content-center">
+               <div class="card border-primary p-2" style="max-width: 30rem;">
+                  <div class="card-header text-center">Введите логин и пароль</div>
+                  <div class="card-body">
+                    <p class="card-text d-flex justify-content-between">Логин: <input class="ml-2" type="text" id="login"></p>
+                    <p class="card-text d-flex justify-content-between">Пароль: <input class="ml-2" type="text" id="password"></p>
+                    <p class="card-text"><button class="btn btn-light w-100" type="button" id="btnEnter">Войти</button</p>
+                  </div>
+                    <p class="text-center">Нет учетной записи? <a id="registration" href="#">Зарегистрироваться</a></p>
+               </div>
+             </div>
+      </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
