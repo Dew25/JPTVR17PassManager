@@ -90,10 +90,22 @@
 /*!*****************************!*\
   !*** ./web/js/AppModule.js ***!
   \*****************************/
-/*! exports provided: authMenu */
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _AuthModule_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AuthModule.js */ \"./web/js/AuthModule.js\");\n\r\n/* global bookModule, readerModule, authModule */\r\n\r\ndocument.getElementById(\"userProfile\").onclick = function(){\r\n  toogleMenuActive(\"userProfile\"); //находится в текущем скрипте\r\n  bookModule.listBooks(); // импортирована из скрипта (модуля) book.js\r\n};\r\ndocument.getElementById(\"userPasswords\").onclick = function(){\r\n  toogleMenuActive(\"userPasswords\"); //находится в текущем скрипте\r\n  bookModule.printNewBookForm(); // импортирована из скрипта (модуля) book.js\r\n};\r\n\r\ndocument.getElementById(\"showLogin\").onclick = function(){\r\n  toogleMenuActive(\"showLogin\");\r\n  _AuthModule_js__WEBPACK_IMPORTED_MODULE_0__[\"authModule\"].printLoginForm();\r\n};\r\ndocument.getElementById(\"sysout\").onclick = function(){\r\n  toogleMenuActive(\"sysout\");\r\n  _AuthModule_js__WEBPACK_IMPORTED_MODULE_0__[\"authModule\"].systemOutput();\r\n};\r\n \r\n\r\nfunction toogleMenuActive(elementId){\r\n  let activeElement = document.getElementById(elementId);\r\n  let passiveElements = document.getElementsByClassName(\"nav-item\");\r\n  for(let i = 0; i < passiveElements.length; i++){\r\n    if(activeElement === passiveElements[i]){\r\n      passiveElements[i].classList.add(\"active\");\r\n    }else{\r\n      if(passiveElements[i].classList.contains(\"active\")){\r\n        passiveElements[i].classList.remove(\"active\");\r\n      }\r\n    }\r\n  }\r\n}\r\n\r\n_AuthModule_js__WEBPACK_IMPORTED_MODULE_0__[\"authModule\"].authMenu();\r\n\n\n//# sourceURL=webpack:///./web/js/AppModule.js?");
+
+/***/ }),
+
+/***/ "./web/js/AuthModule.js":
+/*!******************************!*\
+  !*** ./web/js/AuthModule.js ***!
+  \******************************/
+/*! exports provided: authModule */
 /***/ (function(module, exports) {
 
-eval("throw new Error(\"Module parse failed: Export 'authMenu' is not defined (3:8)\\nYou may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders\\n| import {authModule} from './AuthModule.js';\\n| /* global bookModule, readerModule, authModule */\\n> export {authMenu};\\n| document.getElementById(\\\"userProfile\\\").onclick = function(){\\n|   toogleMenuActive(\\\"userProfile\\\"); //находится в текущем скрипте\");\n\n//# sourceURL=webpack:///./web/js/AppModule.js?");
+eval("throw new Error(\"Module parse failed: Unexpected token (29:50)\\nYou may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders\\n|               event.preventDefault();\\n|               // запускаем нужное действие\\n>                document.getElementById('btnEnter')click();\\n|             }\\n|         });\");\n\n//# sourceURL=webpack:///./web/js/AuthModule.js?");
 
 /***/ })
 

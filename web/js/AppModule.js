@@ -18,6 +18,7 @@ document.getElementById("sysout").onclick = function(){
   toogleMenuActive("sysout");
   authModule.systemOutput();
 };
+ 
 
 function toogleMenuActive(elementId){
   let activeElement = document.getElementById(elementId);
@@ -32,4 +33,5 @@ function toogleMenuActive(elementId){
     }
   }
 }
+
 authModule.authMenu();

@@ -20,6 +20,8 @@ class UserModule{
             document.getElementById('btnAddUser').onclick=function(){
                 userModule.createUser();
             }
+           
+            
       }
       createUser(){
           let firstname = document.getElementById('firstname').value;

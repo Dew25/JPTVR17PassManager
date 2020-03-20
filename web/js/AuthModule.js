@@ -21,6 +21,14 @@ class AuthModule{
         document.getElementById('registration').onclick=function (){
             userModule.addNewUser();
         }
+        document.getElementById('password').addEventListener("keyup", function(event) {
+          if (event.keyCode === 13) {
+              // выключаем предыдущие назначения, если они есть
+              event.preventDefault();
+              // запускаем нужное действие
+               document.getElementById('btnEnter').click();
+            }
+        });
     }
     auth(){
        let login = document.getElementById('login').value;
