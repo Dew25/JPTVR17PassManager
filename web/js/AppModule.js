@@ -1,13 +1,19 @@
 import {authModule} from './AuthModule.js';
+import {userModule} from './UserModule.js';
+import {resourcesModule} from './ResourcesModule.js';
 /* global bookModule, readerModule, authModule */
 
 document.getElementById("userProfile").onclick = function(){
-  toogleMenuActive("userProfile"); //находится в текущем скрипте
-  bookModule.listBooks(); // импортирована из скрипта (модуля) book.js
+  toogleMenuActive("userProfile"); 
+  userModule.printUserProfileForm(); 
 };
-document.getElementById("userPasswords").onclick = function(){
-  toogleMenuActive("userPasswords"); //находится в текущем скрипте
-  bookModule.printNewBookForm(); // импортирована из скрипта (модуля) book.js
+document.getElementById("resources").onclick = function(){
+  toogleMenuActive("resources"); 
+  resourcesModule.getListResources();
+};
+document.getElementById("addResource").onclick = function(){
+  toogleMenuActive("addResource"); 
+  resourcesModule.printAddResourcesForm();
 };
 
 document.getElementById("showLogin").onclick = function(){

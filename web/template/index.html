@@ -8,18 +8,18 @@
   <body>
     <div class="container">
       <div class="row">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary col-12">
+        <div class="navbar navbar-expand-lg navbar-dark bg-primary col-12">
           <a class="navbar-brand py-2" id="menu-title" href="#">Менеджер паролей</a>
-          <div class="d-flex justify-content-between w-100">
-              <div>
-                <input class="text" type="text" placeholder="Search">
-                <button class="btn btn-secondary" type="button">Search</button>
-              </div>
+          <div class="d-flex justify-content-end w-100">
+              
             <ul class="navbar-nav  d-flex justify-content-end">
               <li class="nav-item " id="userProfile" style="display:none;">
                 <a class="nav-link" href="#">Профиль</a>
               </li>
-              <li class="nav-item " id="userPasswords" style="display: none;">
+              <li class="nav-item " id="addResource" style="display: none;">
+                <a class="nav-link" href="#">Добавить ресурс</a>
+              </li>
+              <li class="nav-item " id="resources" style="display: none;">
                 <a class="nav-link" href="#">Мои пароли</a>
               </li>
               <li class="nav-item"  id="showLogin">
@@ -30,9 +30,9 @@
               </li>
             </ul>
           </div>
-        </nav>
+        </div>
       </div>
-      <p id="info" class="w-100 text-center"></p>
+      <p id="info" class="w-100 text-center">&nbsp;</p>
       <div id="content"></div>
     </div>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

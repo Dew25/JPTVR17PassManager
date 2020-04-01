@@ -47,10 +47,11 @@ class HttpModule{
             };
     }
   };
-
+//POST запрос формат: httpModule.http({url:'createUser',options:{method:'POST',data:user}})
+//GET запрос формае: httpModule.http({url:'listUsers',options:{method:'GET'}})
   http(httpOptions){
-    if (httpOptions.params != null){
-      httpOptions.url= httpOptions.url+'?'+httpModule.queryParams(httpOptions.params);
+    if (httpOptions.options.params != null){
+      httpOptions.url= httpOptions.url+'?'+httpModule.queryParams(httpOptions.options.params);
     }
     let options = httpModule.fetchOpts(httpOptions.options);
     return fetch(httpOptions.url, options)

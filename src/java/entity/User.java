@@ -17,7 +17,7 @@ import javax.persistence.Temporal;
  * @author Irina
  */
 @Entity
-public class User implements Serializable {
+public class User implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -43,6 +43,7 @@ public class User implements Serializable {
         this.date = Calendar.getInstance().getTime();
     }
 
+    
     public Long getId() {
         return id;
     }
