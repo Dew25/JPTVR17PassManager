@@ -10,7 +10,7 @@ class ResourcesModule{
             <H2 class="w-100 text-center my-5">Добавьте новый ресурс</H2>
             <div class="input-group mb-3">
               <div class="input-group-prepend">
-                <span class="input-group-text" id="lblResource">Адресс страницы</span>
+                <span class="input-group-text" id="lblResource">Адрес страницы</span>
               </div>
               <input type="text" class="form-control" id="resource-url" aria-describedby="lblResource">
             </div>
@@ -63,7 +63,6 @@ class ResourcesModule{
     let login = document.getElementById('login-resource').value;
     let password = document.getElementById('password-resource').value;
     let accountId = document.getElementById('accountId').value;
-    
     let data={
       "login":login,
       "password":password,
@@ -101,7 +100,6 @@ class ResourcesModule{
                 return;
               }
               resourcesModule.printResourcesForm(response.dataJson);
-              
             });
   }
   showAccoundFor(){
@@ -121,18 +119,12 @@ class ResourcesModule{
                 authModule.printLoginForm();
                 return;
               }
-              
               document.getElementById('accountId').value=response.dataJson.id;
               document.getElementById('password-resource').value=response.dataJson.password;
               document.getElementById('login-resource').value=response.dataJson.login;
               document.getElementById('btnChange').style.display='block';
               document.getElementById('info').innerHTML='&nbsp;';
             })
-//    let selectedOption = select.options[select.selectedIndex];
-//    if(selectedOption.value !== ''){
-//      document.getElementById('password-resource').value='password';
-//      document.getElementById('login-resource').value='root';
-//    }
   }
   changeEnabledButton(){
     let btnChange = document.getElementById('btnChange');
@@ -156,7 +148,7 @@ class ResourcesModule{
         `<div class="mt-5 w-100">
           <div class="w-100 mx-auto">
             <div class="card p-4 m-auto w-100">
-              <h1 class="h3 mb-4 font-weight-normal text-center">Профиль пользователя</h1>
+              <h1 class="h3 mb-4 font-weight-normal text-center">Мои пароли</h1>
               <div class="row mx-md-n2">
                 <div class="col px-md-2">
                   <div class="p-3 border bg-light">
@@ -190,7 +182,6 @@ class ResourcesModule{
             </div>
           </div>
         </div>`;
-    
     let select = document.getElementById('accountId');
     for(let i=0; i < listAccounts.length;i++){
       select.append(new Option(listAccounts[i].resourceUrl,listAccounts[i].id));
