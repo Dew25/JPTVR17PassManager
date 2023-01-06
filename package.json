@@ -24,7 +24,7 @@
   "homepage": "https://github.com/Dew25/JPTVR17PassManager#readme",
   "devDependencies": {
     "clean-webpack-plugin": "^3.0.0",
-    "html-webpack-plugin": "^3.2.0",
+    "html-webpack-plugin": "^5.5.0",
     "webpack": "^4.41.6",
     "webpack-cli": "^3.3.11"
   }
